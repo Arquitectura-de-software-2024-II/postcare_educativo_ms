@@ -1,0 +1,9 @@
+# Ignorar archivos de configuración sensibles
+.env
+
+# Ignorar carpetas generadas
+node_modules/
+dist/
+
+# Otros posibles archivos
+.DS_Store
