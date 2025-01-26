@@ -29,7 +29,7 @@ const server = new ApolloServer({
 
 const { url } = await startStandaloneServer(server, {
   context: async ({ req }) => {
-    // validateApiGateway(req);
+    //validateApiGateway(req);
     return { req };
   },
   listen: { port: Number(process.env.PORT) || 4000 },
