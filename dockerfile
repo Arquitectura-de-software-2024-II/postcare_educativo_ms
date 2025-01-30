@@ -17,7 +17,9 @@ COPY . ./
 RUN npm run build
 
 #COPY
+
 COPY .env .env
+
 # Expose the port the app runs on
 EXPOSE 4000
 

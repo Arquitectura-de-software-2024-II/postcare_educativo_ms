@@ -3,15 +3,20 @@ import { startStandaloneServer } from '@apollo/server/standalone';
 import { typeDefs } from './typeDefs.js';
 import { resolvers } from './resolvers.js';
 import { validateApiGateway } from './middleware.js';
-
-import { config } from 'dotenv';
+import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 
-config(); // Cargar variables de entorno desde .env
+
+dotenv.config({ path: '/app/.env' }); // Cargar el archivo .env // Cargar variables de entorno desde .env
+
+if (!process.env.MONGO_URI || !process.env.PORT) {
+  throw new Error("Las variables de entorno MONGO_URI y PORT no están definidas");
+}
+
 
 // Conectar a MongoDB
 mongoose
-  .connect(process.env.MONGODB_URI || "", {
+  .connect(process.env.MONGO_URI , {
     // Puedes agregar opciones adicionales si es necesario, pero estas no son obligatorias.
   })
   .then(() => {
@@ -35,4 +40,9 @@ const { url } = await startStandaloneServer(server, {
   listen: { port: Number(process.env.PORT) || 4000 },
 });
 
+
+console.log("MONGO_URI:", process.env.MONGO_URI);
+console.log("PORT:", process.env.PORT);
+
+console.log(process.env);
 console.log(`🚀 Server ready at ${url}`);
