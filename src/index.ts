@@ -41,8 +41,6 @@ const { url } = await startStandaloneServer(server, {
 });
 
 
-console.log("MONGO_URI:", process.env.MONGO_URI);
-console.log("PORT:", process.env.PORT);
 
-console.log(process.env);
+
 console.log(`🚀 Server ready at ${url}`);
