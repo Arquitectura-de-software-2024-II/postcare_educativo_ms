@@ -7,7 +7,7 @@ import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 
 
-dotenv.config({ path: '/app/.env' }); // Cargar el archivo .env // Cargar variables de entorno desde .env
+dotenv.config();
 
 if (!process.env.MONGO_URI || !process.env.PORT) {
   throw new Error("Las variables de entorno MONGO_URI y PORT no están definidas");
