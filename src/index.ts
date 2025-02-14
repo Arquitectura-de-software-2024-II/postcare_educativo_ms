@@ -37,7 +37,7 @@ const { url } = await startStandaloneServer(server, {
     //validateApiGateway(req);
     return { req };
   },
-  listen: { port: Number(process.env.PORT) || 4000 },
+  listen: { port: Number(process.env.PORT) || 8080 },
 });
 
 
